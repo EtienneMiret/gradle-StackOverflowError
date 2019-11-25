@@ -1,6 +1,7 @@
 plugins {
     id 'io.freefair.lombok' version '4.1.5'
     id 'java-gradle-plugin'
+    id 'com.gradle.plugin-publish' version '0.10.1'
 }
 
 repositories {
@@ -11,10 +12,20 @@ dependencies {
     testImplementation 'junit:junit:4.12'
 }
 
+version = '1.0.0'
+
+pluginBundle {
+    website = 'https://github.com/EtienneMiret/gradle-StackOverflowError'
+    vcsUrl = 'https://github.com/EtienneMiret/gradle-StackOverflowError'
+    tags = ['example', 'mcve']
+}
+
 gradlePlugin {
     plugins {
         greeting {
             id = 'io.miret.etienne.gradle.gsoe.greeting'
+            displayName = 'Gradle SOE MCVE'
+            description = 'MCVE to demonstrate gradle StackOverflowError.'
             implementationClass = 'io.miret.etienne.gradle.gsoe.GradleStackOverflowErrorPlugin'
         }
     }
